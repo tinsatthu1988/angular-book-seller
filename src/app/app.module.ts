@@ -24,7 +24,7 @@ import { UnauthorizedComponent } from './error/unauthorized/unauthorized.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

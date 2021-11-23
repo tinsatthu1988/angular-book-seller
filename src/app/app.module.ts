@@ -11,6 +11,8 @@ import { AdminComponent } from './admin/admin/admin.component';
 import { NotFoundComponent } from './error/not-found/not-found.component';
 import { UnauthorizedComponent } from './error/unauthorized/unauthorized.component';
 import {HttpClientModule} from "@angular/common/http";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

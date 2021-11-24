@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
 
   bookList: Array<Book> = [];
   selectedBook: Book = new Book();
+  errorMessage: string = "";
 
   @ViewChild(BookComponent) child: BookComponent | undefined;
 
@@ -41,6 +42,15 @@ export class AdminComponent implements OnInit {
     } else {
       this.bookList.push(book);
     }
+  }
+
+  deleteBook(item: Book, ind: number) {
+    this.bookService.deleteBook(item).subscribe(data => {
+      this.bookList.splice(ind, 1);
+    }, err => {
+      this.errorMessage = 'Unexpected error occurred.';
+      console.log(err);
+    })
   }
 
 }

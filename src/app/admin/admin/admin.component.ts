@@ -27,4 +27,8 @@ export class AdminComponent implements OnInit {
     this.child?.showBookModal();
   }
 
+  saveBookWatcher(book: Book) {
+    this.bookList.push(book);
+  }
+
 }

@@ -6,7 +6,9 @@ import { UnauthorizedComponent } from './error/unauthorized/unauthorized.compone
 import { HomeComponent } from './guest/home/home.component';
 import { LoginComponent } from './guest/login/login.component';
 import { RegisterComponent } from './guest/register/register.component';
+import { Role } from './models/role.enum';
 import { ProfileComponent } from './user/profile/profile.component';
+import {AuthGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
 
@@ -16,9 +18,17 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
 
-  {path: 'profile', component: ProfileComponent},
+  { path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.ADMIN, Role.USER]}
+  },
 
-  {path: 'admin', component: AdminComponent},
+  { path: 'admin',
+    component: AdminComponent,
+    canActivate: [AuthGuard],
+    data: {roles: [Role.ADMIN]}
+  },
 
   {path: '404', component: NotFoundComponent},
   {path: '401', component: UnauthorizedComponent},
